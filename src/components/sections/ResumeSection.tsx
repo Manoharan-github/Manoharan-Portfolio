@@ -41,7 +41,7 @@ const ResumeSection = () => {
 
   const handlePreviewResume = () => {
     // In a real application, this would open the resume in a new tab
-    window.open('/MANOHARAN N.pdf', '_blank');
+    window.open('/MANOHARAN N.pdf','_blank');
   };
 
   return (
