@@ -34,14 +34,14 @@ const ResumeSection = () => {
     console.log("Downloading resume...");
     // You can replace this with an actual file download
     const link = document.createElement('a');
-    link.href = '/public/MANOHARAN N.pdf'; // Path to your resume file
+    link.href = '/MANOHARAN N.pdf'; // Path to your resume file
     link.download = 'MANOHARAN N.pdf';
     link.click();
   };
 
   const handlePreviewResume = () => {
     // In a real application, this would open the resume in a new tab
-    window.open('/public/MANOHARAN N.pdf', '_blank');
+    window.open('/MANOHARAN N.pdf', '_blank');
   };
 
   return (
