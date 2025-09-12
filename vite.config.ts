@@ -15,6 +15,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // 👇 IMPORTANT: Add base path for GitHub Pages
-  base: "/Manoharan-portfolio",
+  base: "/Manoharan-portfolio/",
 }));
