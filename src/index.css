@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Dark Theme Design System - Cyberpunk Aesthetic */
+
+@layer base {
+  :root {
+    /* Dark Portfolio Theme */
+    --background: 240 8% 6%;
+    --foreground: 200 100% 95%;
+
+    --card: 240 8% 8%;
+    --card-foreground: 200 100% 95%;
+
+    --popover: 240 8% 8%;
+    --popover-foreground: 200 100% 95%;
+
+    /* Neon Accent Colors */
+    --primary: 180 100% 50%;
+    --primary-foreground: 240 8% 6%;
+
+    --secondary: 280 100% 70%;
+    --secondary-foreground: 240 8% 6%;
+
+    --accent: 220 100% 60%;
+    --accent-foreground: 240 8% 6%;
+
+    --muted: 240 8% 12%;
+    --muted-foreground: 200 50% 70%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 200 100% 95%;
+
+    --border: 240 15% 15%;
+    --input: 240 15% 12%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom Portfolio Colors */
+    --neon-cyan: 180 100% 50%;
+    --neon-purple: 280 100% 70%;
+    --neon-blue: 220 100% 60%;
+    --electric-pink: 320 100% 70%;
+    
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)));
+    --gradient-electric: linear-gradient(45deg, hsl(var(--neon-blue)), hsl(var(--electric-pink)));
+    --gradient-dark: linear-gradient(180deg, hsl(240 8% 6%), hsl(240 8% 4%));
+    
+    /* Glows and Shadows */
+    --glow-cyan: 0 0 20px hsl(var(--neon-cyan) / 0.5);
+    --glow-purple: 0 0 20px hsl(var(--neon-purple) / 0.5);
+    --glow-blue: 0 0 20px hsl(var(--neon-blue) / 0.5);
+    --shadow-neon: 0 8px 32px hsl(var(--neon-cyan) / 0.3);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: var(--gradient-dark);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  /* Glowing Button Variants */
+  .btn-neon {
+    @apply relative overflow-hidden rounded-lg px-8 py-4 font-semibold text-background;
+    background: var(--gradient-neon);
+    box-shadow: var(--shadow-neon);
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-neon:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--glow-cyan), 0 12px 40px hsl(var(--neon-cyan) / 0.4);
+  }
+  
+  .btn-electric {
+    @apply relative overflow-hidden rounded-lg px-8 py-4 font-semibold text-background;
+    background: var(--gradient-electric);
+    box-shadow: 0 8px 32px hsl(var(--neon-blue) / 0.3);
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-electric:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--glow-blue), 0 12px 40px hsl(var(--neon-blue) / 0.4);
+  }
+
+  /* Animated Borders */
+  .border-glow {
+    @apply relative;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card));
+  }
+  
+  .border-glow::before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: var(--gradient-neon);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    opacity: 0;
+    transition: var(--transition-smooth);
+  }
+  
+  .border-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Text Gradients */
+  .text-gradient {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-electric {
+    background: var(--gradient-electric);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
