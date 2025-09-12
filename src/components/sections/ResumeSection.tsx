@@ -30,19 +30,17 @@ const ResumeSection = () => {
   ];
 
   const handleDownloadResume = () => {
-    // In a real application, this would download the actual resume file
     console.log("Downloading resume...");
-    // You can replace this with an actual file download
     const link = document.createElement('a');
-    link.href = '/MANOHARAN_N.pdf'; // Path to your resume file
+    link.href = `${import.meta.env.BASE_URL}MANOHARAN_N.pdf`; // Fixed path
     link.download = 'MANOHARAN_N.pdf';
     link.click();
-  };
+};
 
-  const handlePreviewResume = () => {
-    // In a real application, this would open the resume in a new tab
-    window.open('/MANOHARAN_N.pdf','_blank');
-  };
+const handlePreviewResume = () => {
+    window.open(`${import.meta.env.BASE_URL}MANOHARAN_N.pdf`, '_blank'); // Fixed path
+};
+
 
   return (
     <section className="min-h-screen py-20">
